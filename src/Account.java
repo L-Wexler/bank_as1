@@ -1,25 +1,19 @@
-public abstract class Account implements IAccount{
-
-    //state
+public abstract class Account implements IAccount {
     protected int accountNumber;
     protected double balance;
 
-
-    //costructor
     public Account(int accountNumber) {
         this.accountNumber = accountNumber;
         this.balance = 0;
     }
 
-
     @Override
     public void Deposit(double amount) {
-
+        balance += amount;
     }
 
     @Override
     public abstract double Withdraw(double amount);
-
 
     @Override
     public double GetCurrentBalance() {
@@ -29,5 +23,13 @@ public abstract class Account implements IAccount{
     @Override
     public int GetAccountNumber() {
         return accountNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber=" + accountNumber +
+                ", balance=" + balance +
+                '}';
     }
 }

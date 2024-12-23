@@ -10,10 +10,15 @@ public class BasicAccount extends Account{
 
     @Override
     public double Withdraw(double amount) {
-        if (amount >= balance) {
-        return balance;}
-        else {
-            return amount;
+        if (amount > withdrawalLimit) {
+            amount = withdrawalLimit;
         }
+        if (amount > balance) {
+            amount = balance;
+        }
+        balance -= amount;
+        return amount;
+
+     }
+
     }
-}
