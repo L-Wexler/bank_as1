@@ -4,7 +4,11 @@ public class StandardAccount extends Account {
 
     public StandardAccount(int accountNumber, double creditLimit) {
         super(accountNumber);
-        this.creditLimit = (creditLimit < 0) ? creditLimit : 0; // מבטיח שהמגבלה שלילית, אחרת היא 0
+        if (creditLimit < 0) {
+            this.creditLimit = creditLimit; // אם המגבלה שלילית, נשתמש בה
+        } else {
+            this.creditLimit = 0; // אחרת, נקבע את המגבלה ל-0
+        }
     }
 
     @Override
@@ -19,4 +23,5 @@ public class StandardAccount extends Account {
         }
     }
 }
+
 
